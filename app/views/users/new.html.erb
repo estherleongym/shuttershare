@@ -1,0 +1,13 @@
+<h1>Signup for a Shuttershare account</h1>
+
+<%= form_for :user, url: '/users' do |f| %>
+
+
+Full Name: <%= f.text_field :full_name %>
+Username: <%= f.text_field :username %>
+Email: <%= f.text_field :email_address %>
+Password: <%= f.password_field :password %>
+Password Confirmation: <%= f.password_field :password_confirmation %>
+<%= f.submit "Submit" %>
+
+<% end %>

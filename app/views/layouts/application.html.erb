@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shuttershare</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'https://s3-ap-southeast-1.amazonaws.com/shuttershare/logo/favicon.ico' %>
+  </head>
+
+  <body>
+    <div id="flash">
+      <% flash.each do |key, value| -%>
+        <div id="flash_<%= key %>"><%=h value %></div>
+        <%= javascript_tag "$('#flash_#{key}').fadeOut(5000);" %>
+      <% end %>
+  </div>
+    <%= yield %>
+  </body>
+</html>
