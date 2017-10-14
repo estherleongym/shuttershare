@@ -1,0 +1,9 @@
+<h1>Edit your Shuttershare profile</h1>
+<% byebug %>
+  <% @id = params[:id] %>
+<%= form_for @user, url:"/users/#{@id}", method: 'put', :html => {:multipart => true} do |f| %>
+    <p>Full Name<%= f.text_field :full_name %></p>
+    <p>Profile Description<%= f.text_field :profile_description %></p>
+    <p>Display Picture<%= f.file_field :display_picture %></p>
+    <p><%= f.submit %></p>
+<% end %>

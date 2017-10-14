@@ -32,14 +32,16 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'figaro'
 
+gem "carrierwave"
+gem "mini_magick"
+gem "fog", "1.25"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-  gem 'factory_girl_rails'
-end
-
-group :development, :test do
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'shoulda'
   gem 'rspec-rails', '~> 3.6'
 end
 
@@ -49,6 +51,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+  gem 'factory_girl_rails'
 end
 
 group :development do

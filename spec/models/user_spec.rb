@@ -1,5 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe User do
+  context 'validations' do
+    before { FactoryGirl.build(:user) }
+
+    it do
+      should validate_uniqueness_of(:email_address)
+      should validate_uniqueness_of(:username)
+      should validate_presence_of(:password_digest)
+    end
+  end
 end
