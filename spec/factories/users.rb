@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :user do
-    username "MyString"
-    email_address "MyString"
-    password_digest "MyString"
-    profile_description "MyString"
+    username "EvietheBot"
+    email_address "evietheva@gmail.com"
+    password_digest "pass1234"
+    profile_description "Just you're regular AI Bot, nothing special."
   end
 end

@@ -1,14 +1,9 @@
-   <h1>Login</h1>
+<% if logged_in? %>
 
-   <%= form_for :user, url: '/users/new' do |f| %>
+<%= link_to 'Logout', session_path(current_user.id), method: :delete %>
 
-     Email: <%= f.text_field :email_address %>
-     Password: <%= f.password_field :password %>
-     <%= f.submit "Submit" %>
+<% else %>
 
-   <% end %>
+<%= render partial: '/sessions/new' %>
 
-   <p> OR </p>
-
-   <!-- <%= link_to "Login with Facebook", new_user_path %> -->
-   <%= link_to "Sign up for an account", new_user_path %>
+<% end %>
