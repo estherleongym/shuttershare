@@ -1,5 +1,3 @@
-require 'carrierwave/orm/activerecord'
-
 CarrierWave.configure do |config|
   config.fog_provider = 'fog/aws'                        # required
   config.fog_credentials = {
@@ -13,4 +11,5 @@ CarrierWave.configure do |config|
   config.fog_directory  = ENV['S3_BUCKET_NAME']                          # required
   # config.fog_public     = true                                    # optional, defaults to true
   # config.fog_attributes = { cache_control: "public, max-age=#{365.day.to_i}" } # optional, defaults to {}
+  # config.fog_use_ssl_for_aws = false
 end

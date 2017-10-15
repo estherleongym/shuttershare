@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def create
-byebug
+
     user = User.new(user_params)
 
       if user.save
@@ -33,11 +33,11 @@ byebug
   end
 
   def update
-
+byebug
     @user = current_user
-    # @user.image = params[:user][:image]
-    @user.profile_description = params[:user][:profile_description]
-    @user.full_name = params[:user][:full_name]
+    User.update(@user.id, full_name: edit_params[:full_name], profile_description: edit_params[:profile_description], display_picture: edit_params[:display_picture])
+    @user.display_picture = edit_params[:display_picture]
+
       if @user.save
         flash[:success] = "Changes saved successfully."
         redirect_to root_path
@@ -53,6 +53,12 @@ byebug
   def user_params
 
     params.require(:user).permit(:full_name, :username, :email_address,:password,:password_confirmation)
+
+  end
+
+  def edit_params
+
+    params.require(:user).permit(:full_name, :display_picture, :profile_description)
 
   end
 
