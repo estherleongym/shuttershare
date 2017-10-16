@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   end
 
   get "/users/edit/:id" => "users#edit", as: "edit_profile"
-  
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+  get "/users/fb_login/:id" => "users#fb_login", as: "fb_login"
+  post "/users/set_username" => "sessions#set_username", as: "set_username"
 end

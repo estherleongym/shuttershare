@@ -54,18 +54,16 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   # config.infer_spec_type_from_file_location!
+  # Shoulda::Matchers.configure do |config|
+  #   config.integrate do |with|
+  #     # Choose a test framework:
+  #     with.test_framework :rspec
+  #     with.library :rails
+  #   end
+  # end
 
   # Filter lines from Rails gems in backtraces.
   # config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-end
-
-
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    # Choose a test framework:
-    with.test_framework :rspec
-    with.library :rails
-  end
 end

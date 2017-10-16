@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+  source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -36,15 +36,11 @@ gem "carrierwave"
 gem "mini_magick"
 gem 'fog'
 gem 'fog-aws'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-group :test do
-  gem 'shoulda-matchers', '~> 3.1'
-  gem 'shoulda'
-  gem 'rspec-rails', '~> 3.6'
-end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -54,6 +50,10 @@ group :development, :test do
   gem 'selenium-webdriver'
 
   gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'shoulda'
+  gem 'rspec-rails', '~> 3.6'
+  gem 'test-unit'
 end
 
 group :development do
