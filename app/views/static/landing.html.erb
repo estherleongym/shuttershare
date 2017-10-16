@@ -1,13 +1,28 @@
+<p><%= form_tag(‘/search’, remote: true) do %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag “Search”, :name => nil %>
+<% end %></p>
+
 <% if logged_in? %>
 
 <%= link_to 'Edit Profile', edit_profile_path(current_user.id) %>
 <%= link_to 'View Profile', user_photos_path(current_user.id) %>
 <%= link_to 'Add Photo',  new_user_photo_path(current_user.id) %>
 <%= link_to 'Logout', session_path(current_user.id), method: :delete %>
-
+<br></br>
   <% @user = current_user %>
-    <% if @user.photos == !(nil) %>
-      <%= image_tag @user.photos.first.image.url %>
+
+    <% feed_photos.each do |photo| %>
+      <%= image_tag(photo.photo.url) %>
+      <br></br>
+      <%= photo.caption %>
+      <br></br>
+      <%= photo.created_at.strftime("%d %^b %Y") %>
+        <% if photo.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_user_photo_path(current_user.id,photo.id) %>
+          <%= link_to('Delete', "/users/#{photo.user_id}/photos/#{photo.id}", method: :delete) %>
+        <% end %>
+      <br></br>
     <% end %>
 
 <% else %>

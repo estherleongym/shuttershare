@@ -16,8 +16,8 @@ class PhotosController < ApplicationController
   end
 
   def create
-byebug
-    @photo = Photo.new(user_id: current_user.id, image: photo_params[:image], caption: photo_params[:caption])
+
+    @photo = Photo.new(user_id: current_user.id, photo: photo_params[:photo], caption: photo_params[:caption])
       if @photo.save
         flash[:success] = "Photo saved successfully!"
         redirect_to root_path
@@ -27,11 +27,49 @@ byebug
       end
   end
 
+  def edit
+
+    @user_id = params[:user_id]
+    @photo_id = params[:id]
+    @photo = Photo.find(@photo_id)
+
+  end
+
+  def update
+
+    @photo_id = params[:id]
+    @photo = Photo.find(@photo_id)
+    Photo.update(@photo_id, caption: edit_photo_params[:caption])
+
+      if @photo.save
+        flash[:success] = "Changes saved successfully."
+        redirect_to root_path
+      else
+        flash[:error] = "Changes could not be captured."
+        redirect_to root_path
+      end
+
+  end
+
+  def destroy
+byebug
+    @photo_id = params[:id]
+    Photo.delete(@photo_id)
+    redirect_to root_path
+
+  end
+
 private
 
   def photo_params
 
-    params.require(:photo).permit(:image, :caption)
+    params.require(:photo).permit(:photo, :caption)
+
+  end
+
+  def edit_photo_params
+
+    params.require(:photo).permit(:caption)
 
   end
 end
