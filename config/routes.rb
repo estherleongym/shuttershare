@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   get "/users/fb_login/:id" => "users#fb_login", as: "fb_login"
   post "/users/set_username" => "sessions#set_username", as: "set_username"
+  post "/search" => "users#search", as: "search"
 end

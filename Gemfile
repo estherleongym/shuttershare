@@ -38,6 +38,8 @@ gem 'fog'
 gem 'fog-aws'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'will_paginate', '3.0.pre2'
+gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
