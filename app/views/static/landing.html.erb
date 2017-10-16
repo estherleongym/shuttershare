@@ -2,10 +2,17 @@
 
 <%= link_to 'Edit Profile', edit_profile_path(current_user.id) %>
 <%= link_to 'View Profile', user_photos_path(current_user.id) %>
+<%= link_to 'Add Photo',  new_user_photo_path(current_user.id) %>
 <%= link_to 'Logout', session_path(current_user.id), method: :delete %>
+
+  <% @user = current_user %>
+    <% if @user.photos == !(nil) %>
+      <%= image_tag @user.photos.first.image.url %>
+    <% end %>
 
 <% else %>
 
 <%= render partial: '/sessions/new' %>
+
 
 <% end %>

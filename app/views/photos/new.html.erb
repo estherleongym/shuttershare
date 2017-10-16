@@ -1,0 +1,7 @@
+<h1>Add a Photo</h1>
+<% @id = current_user.id %>
+<%= form_for @photo, url:"/users/#{@id}/photos", :html => {:multipart => true} do |f| %>
+    <p>Caption<%= f.text_field :caption %></p>
+    <p>Image<%= f.file_field :image %></p>
+    <p><%= f.submit %></p>
+<% end %>

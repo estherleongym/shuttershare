@@ -26,8 +26,13 @@ class UsersController < ApplicationController
 
   end
 
+
+  def fb_login
+
+  end
+
   def edit
-byebug
+
     @user = current_user
 
   end
