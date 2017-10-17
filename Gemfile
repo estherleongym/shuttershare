@@ -40,6 +40,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'will_paginate'
 gem 'jquery-rails'
+gem 'braintree'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

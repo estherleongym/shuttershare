@@ -57,13 +57,9 @@ class UsersController < ApplicationController
     byebug
     @users = User.search(search_params[:search])
 
-    # .order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
-    # respond_to do |format|
-    #  format.js  { render :partial => "elements/livesearch", :locals => {:search => @users, :query => params[:search]} }
-    #  format.html    { render :root }
-    # end
     respond_to do |format|
       format.js
+      # if browser does not support .js, the line below provides a html fallback
       # format.html { redirect t}
     end
   end
