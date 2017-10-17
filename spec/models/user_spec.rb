@@ -1,14 +1,19 @@
 require 'rails_helper'
 
-describe User do
-  context 'validations' do
-    before { FactoryGirl.build(:user) }
+  RSpec.describe User, type: :model do
+      describe "validations" do
+        subject { FactoryGirl.build(:user) }
+          it { should validate_uniqueness_of(:email_address) }
+          it { should validate_uniqueness_of(:username) }
+          it { should have_secure_password }
+          it { should belong_to(:commentable) }
+        end
 
-   it { should validate_uniqueness_of(:email_address) }
-    # it do
-    #   should validate_uniqueness_of(:email_address)
-    #   should validate_uniqueness_of(:username)
-    #   should validate_presence_of(:password_digest)
-    # end
+        describe "validations" do
+          subject { FactoryGirl.build(:user2) }
+            it { should validate_uniqueness_of(:email_address) }
+            it { should validate_uniqueness_of(:username) }
+            it { should have_secure_password }
+          end
+
   end
-end

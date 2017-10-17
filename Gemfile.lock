@@ -42,8 +42,14 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
+    autoprefixer-rails (7.1.5)
+      execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
+    bootstrap (4.0.0.beta)
+      autoprefixer-rails (>= 6.0.3)
+      popper_js (~> 1.11.1)
+      sass (>= 3.4.19)
     braintree (2.78.0)
       builder (>= 2.0.0)
     builder (3.2.3)
@@ -297,6 +303,7 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     pg (0.21.0)
+    popper_js (1.11.1)
     power_assert (1.1.0)
     public_suffix (3.0.0)
     puma (3.10.0)
@@ -375,12 +382,9 @@ GEM
     selenium-webdriver (3.6.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
-    shoulda (3.5.0)
-      shoulda-context (~> 1.0, >= 1.0.1)
-      shoulda-matchers (>= 1.4.1, < 3.0)
-    shoulda-context (1.2.2)
-    shoulda-matchers (2.8.0)
-      activesupport (>= 3.0.0)
+    shoulda (2.11.3)
+    shoulda-matchers (3.1.2)
+      activesupport (>= 4.0.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -427,6 +431,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  bootstrap
   braintree
   byebug
   capybara (~> 2.13)
@@ -449,19 +454,16 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   shoulda
-  shoulda-matchers
+  shoulda-matchers (~> 3.1)
   spring
   spring-watcher-listen (~> 2.0.0)
+  sprockets-rails
   test-unit
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
-<<<<<<< HEAD
-  will_paginate (= 3.0.pre2)
-=======
   will_paginate
->>>>>>> d084d18bd1f1dc254221d3b973c58560486a10a4
 
 BUNDLED WITH
    1.16.0.pre.3
