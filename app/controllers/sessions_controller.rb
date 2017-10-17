@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
 
     auth_hash = request.env["omniauth.auth"]
       authentication = Authentication.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"]) ||  Authentication.create_with_omniauth(auth_hash)
-      byebug
+      
         # if: previously already logged in with OAuth
         if authentication.user
           user = authentication.user
@@ -42,17 +42,6 @@ class SessionsController < ApplicationController
 
         # sign_in(user)
         # redirect_to root_path
-  end
-
-
-  def set_username
-    @user = current_user
-      User.update(@user.id, username: params[:user][:username])
-      if @user.save
-        redirect_to edit_profile_path(@user.id)
-      else
-        redirect_to fb_login_path(@user.id)
-      end
   end
 
   def destroy

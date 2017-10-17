@@ -41,6 +41,8 @@ gem 'omniauth-facebook'
 gem 'will_paginate'
 gem 'jquery-rails'
 gem 'braintree'
+gem 'bootstrap'
+gem 'sprockets-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -53,7 +55,7 @@ group :development, :test do
   gem 'selenium-webdriver'
 
   gem 'factory_girl_rails'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers','~> 3.1'
   gem 'shoulda'
   gem 'rspec-rails', '~> 3.6'
   gem 'test-unit'

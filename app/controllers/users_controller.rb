@@ -13,13 +13,10 @@ class UsersController < ApplicationController
     user = User.new(user_params)
 
       if user.save
-
         session[:user_id] = user.id
-        flash[:success] = "Your account has been successfully created!"
-        redirect_to "/users/edit/#{user.id}", method: :put
-
+        flash[:success] = "Your account has been successfully created, complete your profile."
+        redirect_to edit_profile_path(user.id)
       else
-
         flash[:error] = "An error occurred, please try again"
         redirect_to new_user_path
       end
@@ -29,6 +26,16 @@ class UsersController < ApplicationController
 
   def fb_login
 
+  end
+
+  def set_username
+    @user = current_user
+      User.update(@user.id, username: params[:user][:username])
+      if @user.save
+        redirect_to edit_profile_path(@user.id)
+      else
+        redirect_to fb_login_path(@user.id)
+      end
   end
 
   def edit
@@ -44,17 +51,17 @@ class UsersController < ApplicationController
     @user.display_picture = edit_params[:display_picture]
 
       if @user.save
-        flash[:success] = "Changes saved successfully."
-        redirect_to root_path
+        flash[:success] = "Profile completed, please verify your account."
+        redirect_to new_verification_path(@user.id)
       else
-        flash[:error] = "Changes could not be captured."
-        redirect_to root_path
+        flash[:error] = "Changes could not be captured, try again another time. Please proceed to verify your account."
+        redirect_to new_verification_path(@user.id)
       end
 
   end
 
   def search
-    byebug
+
     @users = User.search(search_params[:search])
 
     respond_to do |format|

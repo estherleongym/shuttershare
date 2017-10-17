@@ -52,7 +52,7 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-byebug
+
     @photo_id = params[:id]
     Photo.delete(@photo_id)
     redirect_to root_path

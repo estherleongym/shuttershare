@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :photos, class_name: "Photo", foreign_key: "user_id"
 
   def self.create_with_auth_and_hash(authentication, auth_hash)
-    byebug
+
     user = self.create!(
       full_name: auth_hash["extra"]["raw_info"]["name"],
       email_address: auth_hash["extra"]["raw_info"]["email"],
@@ -28,7 +28,7 @@ class User < ApplicationRecord
 
   def self.search(search)
     if search
-      byebug
+      
       return User.where("username ILIKE ? OR email_address ILIKE ? OR full_name ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
     else
       flash[:error] = "Query did not return any matches"
