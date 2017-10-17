@@ -53,6 +53,21 @@ class UsersController < ApplicationController
 
   end
 
+  def search
+    byebug
+    @users = User.search(search_params[:search])
+
+    # .order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    # respond_to do |format|
+    #  format.js  { render :partial => "elements/livesearch", :locals => {:search => @users, :query => params[:search]} }
+    #  format.html    { render :root }
+    # end
+    respond_to do |format|
+      format.js
+      # format.html { redirect t}
+    end
+  end
+
   private
 
   def user_params
@@ -64,6 +79,12 @@ class UsersController < ApplicationController
   def edit_params
 
     params.require(:user).permit(:full_name, :display_picture, :profile_description)
+
+  end
+
+  def search_params
+
+    params.slice(:search)
 
   end
 
