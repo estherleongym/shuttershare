@@ -53,6 +53,17 @@ class UsersController < ApplicationController
 
   end
 
+  def search
+    byebug
+    @users = User.search(search_params[:search])
+
+    respond_to do |format|
+      format.js
+      # if browser does not support .js, the line below provides a html fallback
+      # format.html { redirect t}
+    end
+  end
+
   private
 
   def user_params
@@ -64,6 +75,12 @@ class UsersController < ApplicationController
   def edit_params
 
     params.require(:user).permit(:full_name, :display_picture, :profile_description)
+
+  end
+
+  def search_params
+
+    params.slice(:search)
 
   end
 

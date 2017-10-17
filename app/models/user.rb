@@ -25,4 +25,14 @@ class User < ApplicationRecord
     x = self.authentications.find_by(provider: 'facebook')
       return x.token unless x.nil?
     end
+
+  def self.search(search)
+    if search
+      byebug
+      return User.where("username ILIKE ? OR email_address ILIKE ? OR full_name ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+    else
+      flash[:error] = "Query did not return any matches"
+      return User.all
+    end
+  end
 end

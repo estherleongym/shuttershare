@@ -1,0 +1,11 @@
+
+<% if @users == nil %>
+
+<% else %>
+  <% @users.each do |result| %>
+  <%= image_tag(result.display_picture.url) %>
+  <p><%= result.full_name %></p>
+  <p><%= result.username %></p>
+  <p><%= result.email_address %></p>
+  <%end%>
+<% end %>
