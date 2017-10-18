@@ -7,4 +7,3 @@ RSpec.describe Photo, type: :model do
         with_foreign_key('user_id')
       end
     end
-  end
