@@ -26,9 +26,9 @@ class User < ApplicationRecord
       return x.token unless x.nil?
     end
 
-  def self.search(search)
+  def self.search(search) # User.search()
     if search
-      
+
       return User.where("username ILIKE ? OR email_address ILIKE ? OR full_name ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
     else
       flash[:error] = "Query did not return any matches"
