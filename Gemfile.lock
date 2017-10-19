@@ -46,10 +46,9 @@ GEM
       execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
-    bootstrap (4.0.0.beta)
-      autoprefixer-rails (>= 6.0.3)
-      popper_js (~> 1.11.1)
-      sass (>= 3.4.19)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     braintree (2.78.0)
       builder (>= 2.0.0)
     builder (3.2.3)
@@ -437,7 +436,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
-  bootstrap
+  bootstrap-sass
   braintree
   byebug
   capybara (~> 2.13)
@@ -455,6 +454,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   pg (~> 0.18)
+  popper_js
   puma (~> 3.7)
   rails (~> 5.1.4)
   rails_12factor

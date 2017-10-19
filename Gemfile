@@ -41,8 +41,10 @@ gem 'omniauth-facebook'
 gem 'will_paginate'
 gem 'jquery-rails'
 gem 'braintree'
-gem 'bootstrap'
 gem 'sprockets-rails'
+gem 'popper_js'
+gem 'bootstrap-sass'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -81,4 +83,4 @@ group :production do
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-ruby '2.3.4'
+# ruby '2.3.4'

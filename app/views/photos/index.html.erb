@@ -1,5 +1,7 @@
 <h1><%= @user.full_name %></h1>
+<% if !(@user.display_picture.url.nil?) %>
 <%= image_tag @user.display_picture.url %>
+<%end%>
 <p>"<%= @user.profile_description %>"</p>
 <p>shuttershare/<%= @user.username %></p>
 <%= link_to 'Home', root_path %>

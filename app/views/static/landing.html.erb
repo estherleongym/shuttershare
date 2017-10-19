@@ -2,17 +2,6 @@
 <% if logged_in? %>
 
 
-<%= link_to 'Edit Profile', edit_profile_path(current_user.id) %>
-<%= link_to 'View Profile', user_photos_path(current_user.id) %>
-<%= link_to 'Add Photo',  new_user_photo_path(current_user.id) %>
-<%= link_to 'Logout', session_path(current_user.id), method: :delete %>
-<br></br>
-<%= form_tag search_path, :method => :post, :id => "search_form", remote: :true do %>
-    <%= text_field_tag :search, params[:search], placeholder: 'Search for a user', :autocomplete => :off, :id => 'SearchSearch'  %>
-    <%= submit_tag "Search" %>
-<% end %>
-<br></br>
-
 <div id="search-results"><%#= render partial: '/users/search_results' %></div>
 
 
@@ -32,8 +21,5 @@
     <% end %>
 </div>
 <% else %>
-
-<%= render partial: '/sessions/new' %>
-
-
+  <%= render partial: '/sessions/new' %>
 <% end %>

@@ -13,5 +13,11 @@
 
  */
 
-@import "bootstrap";
- @import "braintree";
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+   @import "global";
+  @import "braintree";
+  @import "sessions";
+  @import "static";
+  @import "photos";
+  @import "users";

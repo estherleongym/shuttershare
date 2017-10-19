@@ -25,9 +25,12 @@ DatabaseCleaner.strategy = :truncation
         create(:user)
   			expect{ User.search("estherleongym") }.not_to raise_error
   		end
-      DatabaseCleaner.clean
+
       it "returns all users when no match is found based on keyword provided" do
-  			expect(User.search("eviethebot").first ).to eq User.all.first
+        DatabaseCleaner.clean
+        create(:user3)
+        create(:user4)
+  			expect(User.search("eviethebot")).to eq User.all.first
   		end
     end
   end
