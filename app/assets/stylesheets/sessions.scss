@@ -1,3 +1,99 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html,
+
+  .view{
+      height: 100%;
+      background: url("https://s3-ap-southeast-1.amazonaws.com/shuttershare/background/2935-iphone-smartphone-taking-photo-photography.jpg")no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+
+  }
+
+
+body,
+html,
+
+.container{
+  margin: 0;
+  background-color: transparent;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+
+
+  }
+
+
+  .signup.container{
+
+    margin-top: 50px;
+
+  }
+
+  .wrapper {
+      margin-left: 10px;
+      width: 400px;
+      float: left;
+
+    }
+
+  .form-signin {
+    max-width: 500px;
+    padding: 15px 38px 40px;
+    margin: 0 auto;
+    background-color: rgba(120, 103, 109, 0.4);
+    border-radius: 25px;
+    }
+
+  .form-signin-heading {
+    text-align:center;
+    margin-bottom: 30px;
+    font-size: 40px;
+  }
+
+  .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+  }
+
+  .btn-primary{
+
+    background-color:  #33cccc;
+    border-color: transparent;
+
+  }
+
+  input[type="text"] {
+    margin-bottom: 0px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  input[type="password"] {
+    margin-bottom: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+
+
+  #links{
+
+  padding-top: 20px;
+  text-align:center;
+  color: #33cccc;
+  font-weight: 600;
+  a:visited {
+    color: #333333;
+  }
+  a:active {
+    color: #333333;
+  }
+  a {
+    color: #333333;
+  }}

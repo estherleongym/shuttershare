@@ -1,14 +1,15 @@
-<h1>Login</h1>
-
-<%= form_for :user, url: '/sessions' do |f| %>
-
-  Email: <%= f.text_field :email_address %>
-  Password: <%= f.password_field :password %>
-  <%= f.submit "Submit" %>
-
-<% end %>
-
-<p> OR </p>
-
-<%= link_to "Sign in with Facebook", "/auth/facebook" %>
-<%= link_to "Sign up for an account", new_user_path %>
+<div class = "signup container">
+  <div class="col-md-6"><span class="float-left"></span>
+	<div class="wrapper">
+    <%= form_for :user, url: '/sessions', :html => {class: 'form-signin', name: 'user'} do |f| %>
+        <h3 class="form-signin-heading">Sign In</h3>
+            Email: <%= f.text_field :email_address, type:"text", class:"form-control" %>
+            Password: <%= f.password_field :password, type:"password", class:"form-control" %>
+            <%= f.submit "Submit", class: "btn btn-lg btn-primary btn-block", type:"Submit"%>
+            <div id="links"><%= link_to "Sign in with Facebook", "/auth/facebook" %>
+            <br></br>
+            <%= link_to "Sign up for an account", new_user_path %></div>
+        <% end %>
+	</div>
+  </div>
+</div>
