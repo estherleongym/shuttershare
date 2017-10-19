@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 
     @user = current_user
 
-    if @user.profile_description.nil
+    if @user.profile_description.nil?
 
         User.update(@user.id, full_name: edit_params[:full_name], profile_description: edit_params[:profile_description], display_picture: edit_params[:display_picture])
         @user.display_picture = edit_params[:display_picture]
