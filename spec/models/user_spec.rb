@@ -30,7 +30,7 @@ DatabaseCleaner.strategy = :truncation
         DatabaseCleaner.clean
         create(:user3)
         create(:user4)
-  			expect(User.search("eviethebot")).to eq User.all.first
+  			expect(User.search("eviethebot")).to eq User.all
   		end
     end
   end
