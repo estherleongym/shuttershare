@@ -11,6 +11,6 @@ RSpec.describe "Logins", type: :request do
     visit root_path
     fill_in "user_email_address", :with => user.email_address
     fill_in "user_password", :with => user.password
-    click_button "Submit"
+    click_on("Submit")
   end
 end

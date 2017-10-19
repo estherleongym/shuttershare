@@ -46,20 +46,33 @@ class UsersController < ApplicationController
 
   def update
 
+
     @user = current_user
-    User.update(@user.id, full_name: edit_params[:full_name], profile_description: edit_params[:profile_description], display_picture: edit_params[:display_picture])
-    @user.display_picture = edit_params[:display_picture]
 
-      if @user.save
-        flash[:success] = "Profile completed, please verify your account."
-        redirect_to new_verification_path(@user.id)
-      else
-        flash[:error] = "Changes could not be captured, try again another time. Please proceed to verify your account."
-        redirect_to new_verification_path(@user.id)
-      end
+    if @user.profile_description.nil
 
+        User.update(@user.id, full_name: edit_params[:full_name], profile_description: edit_params[:profile_description], display_picture: edit_params[:display_picture])
+        @user.display_picture = edit_params[:display_picture]
+
+          if @user.save
+            flash[:success] = "Profile completed, please verify your account."
+            redirect_to new_verification_path(@user.id)
+          else
+            flash[:error] = "Changes could not be captured, try again another time. Please proceed to verify your account."
+            redirect_to new_verification_path(@user.id)
+          end
+    else
+      User.update(@user.id, full_name: edit_params[:full_name], profile_description: edit_params[:profile_description], display_picture: edit_params[:display_picture])
+      @user.display_picture = edit_params[:display_picture]
+        if @user.save
+          flash[:success] = "Changes saved."
+          redirect_to root_path
+        else
+          flash[:error] = "Changes could not be captured, try again another time."
+          redirect_to root_path
+    end
   end
-
+end
   def search
 
     @users = User.search(search_params[:search])
