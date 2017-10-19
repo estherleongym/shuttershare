@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-byebug
+
     user = User.find_by_email_address(params[:user][:email_address])
 
     if user
@@ -13,7 +13,7 @@ byebug
       session[:user_id] = user.id
       flash[:success] = "Hi, #{user.username}"
       redirect_to root_path
-  
+
     else
       redirect_to root_path
     end

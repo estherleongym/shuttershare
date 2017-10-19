@@ -28,8 +28,12 @@ class User < ApplicationRecord
 
   def self.search(search) # User.search()
     if search
-
-      return User.where("username ILIKE ? OR email_address ILIKE ? OR full_name ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+      search_result = User.where("username ILIKE ? OR email_address ILIKE ? OR full_name ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+        if search_result.empty?
+          return User.all
+        else
+          return search_result
+        end
     else
       flash[:error] = "Query did not return any matches"
       return User.all
